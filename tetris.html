@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TETRIS</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+      will-change: auto;
+    }
+
+    #game_board {
+      position: absolute;
+      left: 300px;
+      top: 50px;
+    }
+  </style>
+  <script src="tetris.js"></script>
+</head>
+<body>
+  <div id="game_board">
+    <div><span style="font-size: 40px; font-style: italic;">TETRIS</span></div>
+    <canvas id="tetris"></canvas>
+    <div id="game_info" style="display: inline-block">
+      <!-- <div><span>High Score: </span> <span id="high_score">1</span></div>
+      <div><span>Score: </span> <span id="score">1</span></div> -->      
+      <div style=" margin-bottom: 20px;">
+        <span style=" display: block";>NEXT BLOCK</span>
+        <canvas id="next_block"></canvas>
+      </div>
+      <button onclick=" playing = requestAnimationFrame(play)">게임시작!</button>
+      <button onclick=" cancelAnimationFrame(playing)">게임 중지!</button>
+      <button onclick=" playAgain()">게임 새로!</button>
+    </div>
+    
+    <!-- <fieldset>
+      <legend>LEVEL: </legend>
+      <input type="radio" name="level" id="level_high" onselect="GAME_LEVEL = 50">
+      <label for="level_high">HIGH</label>
+      <input type="radio" name="level" id="level_mid" checked="true" onselect="GAME_LEVEL = 60">
+      <label for="level_mid">MID</label>
+      <input type="radio" name="level" id="level_low" onselect="GAME_LEVEL = 80">
+      <label for="level_low">LOW</label>
+    </fieldset> -->
+  </div>
+</body>
+<script>
+  setUp()
+  score_now = document.getElementById("score")
+</script>
+</html>
