@@ -15,6 +15,15 @@
       left: 300px;
       top: 50px;
     }
+
+    .buttons {
+      border: 1px solid black;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      padding: 0px;
+      margin: 10px 15px;
+    }
   </style>
   <script src="tetris.js"></script>
 </head>
@@ -22,17 +31,28 @@
   <div id="game_board">
     <div><span style="font-size: 40px; font-style: italic;">TETRIS</span></div>
     <canvas id="tetris"></canvas>
-    <div id="game_info" style="display: inline-block">
-      <!-- <div><span>High Score: </span> <span id="high_score">1</span></div>
-      <div><span>Score: </span> <span id="score">1</span></div> -->      
-      <div style=" margin-bottom: 20px;">
-        <span style=" display: block";>NEXT BLOCK</span>
-        <canvas id="next_block"></canvas>
-      </div>
-      <button onclick=" playing = requestAnimationFrame(play)">게임시작!</button>
-      <button onclick=" cancelAnimationFrame(playing)">게임 중지!</button>
-      <button onclick=" playAgain()">게임 새로!</button>
+    <div style="display: inline-block; position: relative; top: 0px;">
+      <div id="game_info" >
+        <!-- <div><span>High Score: </span> <div style="display: inline" id="high_score"></div></div>
+        <div><span>Score: </span> <div sytle="display: inline" id="score"></div></div>      
+        <div style=" margin-bottom: 20px;"> -->
+      <span style=" display: block; position: relative; top: 0;";>NEXT BLOCK</span>
+      <canvas id="next_block"></canvas>
     </div>
+    <div>
+      <button class="buttons" style="display: block; margin-left: 45px; margin-right: 45px; position: relative; left:45px;" onclick="block_now.rotate(ctx)">rotate</button>
+      <button class="buttons" onclick="block_now.left(ctx)">left</button>
+      <button class="buttons" onclick="block_now.down(ctx)">down</button>
+      <button class="buttons" onclick="block_now.right(ctx)">right</button>
+      <button class="buttons" style="display: block; width: 160px;position: relative; left:15px;" onclick="block_now.land(ctx)">drop</button>
+    </div>
+  </div>
+  <div>
+    <button onclick=" playing = requestAnimationFrame(play)">게임시작!</button>
+    <button onclick=" cancelAnimationFrame(playing)">게임 중지!</button>
+    <button onclick=" playAgain()">게임 새로!</button>
+  </div>
+  </div>
     
     <!-- <fieldset>
       <legend>LEVEL: </legend>
